@@ -1,7 +1,6 @@
 {{--
-      resources/views/newsletters/form.blade.php
+      resources/views/newsletters/create.blade.php
  --}}
-
 <div id="main_tip_newsletter">
   @if ($errors->any())
    <div class="alert alert-danger">
