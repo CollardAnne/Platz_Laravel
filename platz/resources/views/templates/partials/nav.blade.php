@@ -30,19 +30,17 @@
                   {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('dashboard-form').submit();">
-                    {{ __('Dashboard') }}
-                </a>
-                <form id="dashboard-form" method="get" action="{{ URL::route('voyager.dashboard') }}" style="display: none;"> @csrf </form>
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    {{ __('Deconnexion') }}
-                </a>
-                <form id="logout-form" method="post" action="{{ URL::route('logout') }}" style="display: none;"> @csrf </form>
+
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('dashboard-form').submit();">{{ __('Dashboard') }}</a>
+                <form id="dashboard-form" method="get" action="{{ route('voyager.dashboard') }}" style="display: none;"> @csrf </form>
+
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Deconnexion') }}</a>
+                <form id="logout-form" method="post" action="{{ route('logout') }}" style="display: none;"> @csrf </form>
+
               </div>
             </li>
           @endguest
       </ul>
-
     </div>
 
     <div id="stripes"></div>

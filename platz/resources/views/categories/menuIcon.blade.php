@@ -1,17 +1,16 @@
 {{--
-      resources/views/categories/index.blade.php
+      resources/views/categories/menuIcon.blade.php
       Variables disponibles :
-        $categories Array (OBJ (id,...
+        $categories Array (Categorie (id, nom, icone))
  --}}
 
 
  <ul>
    <li>
      <a href="{{ route('homepage') }}">
-       <img src="img/all.png" alt="view all" title="all" height="28">
+       <img src="img/all.png" alt="view all" title="All ressources" height="28">
      </a>
    </li>
-
    @foreach ($categories as $categorie)
      <li>
        <a href="/?categorie={{ $categorie->id }}">
@@ -19,5 +18,4 @@
        </a>
      </li>
    @endforeach
-
  </ul>
