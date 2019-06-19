@@ -47,4 +47,12 @@ class User extends \TCG\Voyager\Models\User {
     public function comments() {
       return $this->hasMany(Commentaire::class, 'user_id');
     }
+
+    /**
+     * Relation ressources et utilisateur
+     * @return 
+     */
+    public function ressources() {
+      return $this->hasMany('App\Ressource', 'user');
+    }
 }

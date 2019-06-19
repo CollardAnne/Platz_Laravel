@@ -55,4 +55,14 @@
        ]);
      }
 
+     /**
+      * Liste des ressources par users
+      * @return array [Ressources d'un utilisateur à afficher]
+      */
+     public function indexByUser(){
+       $ressources = auth()->user()->ressources;
+       return view('users.mes-ressources')->with('ressources', $ressources);
+     }
+
+
    }

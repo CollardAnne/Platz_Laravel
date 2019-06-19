@@ -16,25 +16,19 @@
       <ul class="ml-auto menuConnexion">
           <!-- Authentication Links -->
           @guest
-            <li class="nav-item">
-              <a class="" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-            </li>
-            @if (Route::has('register'))
-              <li class="nav-item">
-                  <a class="" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-              </li>
-            @endif
+            <li class="nav-item"><a href="{{ route('login') }}">Connexion</a></li>
+            <li class="nav-item"><a href="{{ route('register') }}">Inscription</a></li>
           @else
             <li class="nav-item dropdown">
               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ Auth::user()->name }} <span class="caret"></span>
+                {{ Auth::user()->name }} <span class="caret"><img src="storage/{{Auth::user()->avatar}}" alt="" width="30px" style="padding-left:5px; margin-bottom:5px;"></span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('dashboard-form').submit();">{{ __('Dashboard') }}</a>
-                <form id="dashboard-form" method="get" action="{{ route('voyager.dashboard') }}" style="display: none;"> @csrf </form>
-
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Deconnexion') }}</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('voyager.dashboard') }}">Dashboard</a>
+                <a class="dropdown-item" href="{{ route('users.edit') }}">Mon profil</a>
+                <a class="dropdown-item" href="{{ route('ressources.indexByUser') }}">Mes ressources</a>
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Deconnexion</a>
                 <form id="logout-form" method="post" action="{{ route('logout') }}" style="display: none;"> @csrf </form>
 
               </div>

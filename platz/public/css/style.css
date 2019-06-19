@@ -110,7 +110,7 @@ body,html{
 #wrapper-header{
 	float:left;
 	width:105%;
-	height:65px;
+	height:75px;
 	background-color:#202020;
 	opacity:0;
 }
@@ -125,7 +125,7 @@ body,html{
 
 .logo{
 	position:absolute;
-  margin-top:13.5px;
+  margin-top:20px;
 	left:15px;
   cursor:pointer;
 }
@@ -958,4 +958,54 @@ body,html{
 }
 .dropdown-menu a:hover {
   color: #000;
+}
+#main_tip_search > ul > li > div > a:last-of-type {
+  color: #FF9390;
+}
+#main_tip_search > ul > li > div > a:last-of-type:hover {
+  color: red;
+}
+
+.titre-profil {
+  padding-bottom: 1em;
+}
+.titre-profil-2 {
+  margin: auto;
+  color: #B3B3B3;
+  font-size: 20px;
+}
+.image-profil {
+  width: 50%;
+  margin: auto;
+  padding: 1em 0;
+}
+.btn-edit {
+  padding: 1em 0;
+}
+.mail-profil {
+  margin: auto;
+  color: #B3B3B3;
+  padding-bottom: 2em;
+}
+.message-profil {
+  color: #B3B3B3;
+  padding-left: .5em;
+}
+
+.label-file-profil {
+    cursor: pointer;
+    color: #22a7f0;
+    font-weight: bold;
+}
+.label-file-profil:hover {
+    color: #337ab7;
+}
+.input-file-profil{
+  display: none;
+}
+.ligne{
+  width: 50px;
+  height: 1px;
+  background: #B3B3B3;
+  margin: 1em auto;
 }

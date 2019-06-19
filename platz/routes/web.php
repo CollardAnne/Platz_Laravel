@@ -26,6 +26,9 @@
   Auth::routes();
 
 
+// Routes : Users
+  require base_path('routes/users.php');
+
 // Routes : Ressources
   require base_path('routes/ressources.php');
 

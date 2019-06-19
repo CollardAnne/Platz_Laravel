@@ -12,5 +12,13 @@
          * @var string
          */
         protected $table = 'categories';
-        
+
+        /**
+         * Relation ressources et categorie
+         * @return 
+         */
+        public function ressources() {
+          return $this->hasMany('App\Ressource', 'categorie');
+        }
+
    }

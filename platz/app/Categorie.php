@@ -9,10 +9,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Categorie extends Model {
 
-  /**
-   * Déactive l'association d'une date et une heure à la création d'une categorie
-   * @var bool
-   */
-  public $timestamps = false;
+    /**
+     * Déactive l'association d'une date et une heure à la création d'une categorie
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Relation ressources et categorie
+     * @return
+     */
+    public function ressources() {
+      return $this->hasMany('App\Ressource', 'categorie');
+    }
 
 }

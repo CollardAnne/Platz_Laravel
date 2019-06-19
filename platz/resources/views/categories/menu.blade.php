@@ -20,30 +20,35 @@
    @guest
      <li>
        <div class="categorieMenu">
-         <a class="" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+         <a href="{{ route('login') }}">Connexion</a>
        </div>
      </li>
      @if (Route::has('register'))
        <li>
          <div class="categorieMenu">
-           <a class="" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+           <a href="{{ route('register') }}">Inscription</a>
          </div>
        </li>
       @endif
     @else
       <li>
         <div class="categorieMenu">
-          <a class="" href="{{ route('voyager.dashboard') }}">{{ __('Dashboard') }}</a>
+          <a href="{{ route('voyager.dashboard') }}">Dashboard</a>
         </div>
       </li>
       <li>
         <div class="categorieMenu">
-          <a class="" href="{{ route('voyager.users.edit', Auth::user()->id) }}">{{ __('Profil') }}</a>
+          <a href="{{ route('users.edit') }}">Mon profil</a>
         </div>
       </li>
       <li>
         <div class="categorieMenu">
-          <a class="" href="{{ route('logout') }}">{{ __('Deconnexion') }}</a>
+          <a href="{{ route('ressources.indexByUser') }}">Mes ressources</a>
+        </div>
+      </li>
+      <li>
+        <div class="categorieMenu">
+          <a href="{{ route('logout') }}">Deconnexion</a>
         </div>
       </li>
     @endguest
