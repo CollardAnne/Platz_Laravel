@@ -11,11 +11,44 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Routes par défaut
+  Route::get('/', 'RessourcesController@index')
+    ->name('homepage');
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+// Routes : Voyager
+  Route::group(['prefix' => 'admin'], function () {
+      Voyager::routes();
+  });
+
+
+// Routes : Authentication
+  Auth::routes();
+
+
+// Routes : Users
+  require base_path('routes/users.php');
+
+// Routes : Ressources
+  require base_path('routes/ressources.php');
+
+
+// Routes : Newsletters
+  require base_path('routes/newsletters.php');
+
+
+// Routes : Commentaires
+  require base_path('routes/commentaires.php');
+
+
+/*
+|--------------------------------------------------------------------------
+| Vue Composer
+|--------------------------------------------------------------------------
+|
+*/
+
+// Vue Composer : Catégories
+  View::composer(['categories.menu','categories.menuIcon'], function($view){
+    $view->with('categories', App\Http\Models\Categorie::all());
+  });

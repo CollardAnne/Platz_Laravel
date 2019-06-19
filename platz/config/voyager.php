@@ -111,13 +111,13 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'fr',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
-            'en',
+            'fr',
             //'pt',
         ],
     ],
@@ -151,7 +151,10 @@ return [
         ],
 
         'widgets' => [
-          'TCG\\Voyager\\Widgets\\UserDimmer',
+          // 'TCG\\Voyager\\Widgets\\UserDimmer',
+          'App\\Widgets\\Users',
+          'App\\Widgets\\Ressources',
+          'App\\Widgets\\Categories',
         ],
 
     ],
