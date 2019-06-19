@@ -3,6 +3,7 @@
       Variables disponibles :
         $commentaires Array (OBJ (id, texte))
  --}}
+ 
 <li>
   @foreach ($commentaires as $commentaire)
     <div class="post-reply">

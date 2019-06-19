@@ -6,7 +6,7 @@ use Arrilot\Widgets\AbstractWidget;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 
-class Ressources extends AbstractWidget
+class Users extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -21,18 +21,18 @@ class Ressources extends AbstractWidget
      */
     public function run()
     {
-        $count = \App\Ressource::count();
-        $string = 'Ressources';
+        $count = \App\User::count();
+        $string = 'Users';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-documentation',
+            'icon'   => 'voyager-person',
             'title'  => "{$count} {$string}",
-            'text'   => '' /*__('voyager::dimmer.post_text', ['count' => $count, 'string' => Str::lower($string)])*/,
+            'text'   => ""/* __('voyager::dimmer.post_text', ['count' => $count, 'string' => Str::lower($string)])*/,
             'button'=> [
-                'text' => 'Ressources',
-                'link' => route('voyager.ressources.index'),
+                'text' => 'Users',
+                'link' => route('voyager.users.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));
     }
 

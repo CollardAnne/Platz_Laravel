@@ -458,12 +458,12 @@ padding-top:7.5%;
 
 .post-reply{
 float:left;
-width:53%;
+width:70%;
 margin-left:4%;
   height:auto;
 }
 
-.post-reply{margin-top:50px;}
+.post-reply{margin-top:20px;}
 
 .image-reply-post,.image-reply-post-2{
 float:left;
@@ -489,8 +489,8 @@ line-height:65px;
 height:65px;
 padding-left:30px;
 }
-
-/* .text-reply-post,.text-reply-post-2{
+/* -- */
+.text-reply-post,.text-reply-post-2{
 float:left;
 text-align:left;
 height:auto;
@@ -515,8 +515,10 @@ width:60%;
 margin-left:7.5%;
 height:auto;
 margin-bottom:25px;
-} */
+}
+/* --*/
 
+/*
 .text-reply-post{
 float:left;
 text-align:left;
@@ -541,7 +543,7 @@ text-align:left;
 height:auto;
 line-height:140%;
 margin-left:95px;
-width:calc(90% - 95px);
+width:calc(100% - 95px);
 font-family: Helvetica, sans-serif;
 -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -553,7 +555,7 @@ border-bottom:solid #E9E9E9 1px;
 padding:20px;
 margin-top:-20px;
 }
-
+*/
 .post-send{
 float:left;
 width:60%;

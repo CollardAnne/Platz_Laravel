@@ -17,6 +17,7 @@
         <textarea id="message" name="message" maxlength="500" placeholder="Votre Message" tabindex="5" cols="30" rows="4" style = "margin-top:0px;"></textarea>
       </fieldset>
       <input type="hidden" id="ressource" value='{{$ressource->id}}'>
+      <input type="hidden" id="user_id" value='{{$ressource->user}}'>
     </div>
     <div class="form-group row">
       <div style="text-align:center;"><input type="submit" id="envoi" name="envoi" value="Envoyer" /></div>

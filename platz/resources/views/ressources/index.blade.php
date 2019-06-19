@@ -19,7 +19,6 @@
       @foreach ($ressources as $ressource)
         <figure class="white">
           <a href="{{ route('ressources.show', $ressource->id) }}">
-            {{-- <img src="storage/{{ $ressource->image }}" alt="{{ $ressource->titre }}" /> --}}
             <img src="{{asset('storage/'.$ressource->image)}}" alt="{{ $ressource->titre }}" />
             <dl>
               <dt>{{ $ressource->titre }}</dt>

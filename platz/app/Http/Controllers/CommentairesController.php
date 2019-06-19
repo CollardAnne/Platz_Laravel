@@ -13,7 +13,7 @@
    *  Controller des commentaires
    */
 
-  class CommentairesController extends Controller{
+  class CommentairesController extends Controller {
 
     /**
      * Liste des commentaires
@@ -31,7 +31,10 @@
      * @return array    [Commentaire : texte, id, user, ressource, date de création]
      */
     public function show($id){
-      $commentaire = CommentairesMdl::find($id);
+      $commentaire = Commentaire::find($id);
+      $ressource = Ressource::with('commentaires.user')->where('id', $id)->first();
+      $commentaire = $ressource->commentaires;
+
       return View::make('commentaires.show', ['commentaire'=>$commentaire]);
     }
 
@@ -43,14 +46,25 @@
      */
     public function ajaxInsert(Request $request, array $data = null){
 
+        /**
+         * [if Vérifier si l'auteur est authentifié]
+         * @var [type]
+         */
         if (Auth::check()) {
           $data= new Commentaire();
           $data->texte = $request['texte'];
           $data->ressource= $request['ressource'];
-        }
-    // $data->nom= $request['nom'];
+          $data->user_id = $request['user_id'];
+          // Je récupère l'id de l'auteur
+          $data->user_id = auth()->user()->id;
+          $data->save();
 
-        $data->save();
-        return Response()->json($data);
+          $data->user_name = auth()->user()->name;
+          $data->user_avatar = auth()->user()->avatar;
+
+          return Response()->json($data);
+
+        }
+        return response()->json([], 422);
       }
     }

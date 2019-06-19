@@ -72,8 +72,11 @@
               <ul id="liste">
                 @foreach ($ressource->commentaires as $commentaire)
                   <div class="post-reply">
-                    {{-- <div class="text-reply-post">{{$commentaire->name}}</div> --}}
-                    <div class="nom-reply-post">{{$commentaire->texte}}</div>
+                    <div class="image-reply-post">
+                      <img src="{{asset('storage/'.$commentaire->user->avatar) }}" width="65" height="65">
+                    </div>
+                    <div class="name-reply-post">{{is_null($commentaire->user) ? '-' :$commentaire->user->name}}</div>
+                    <div class="text-reply-post">{{$commentaire->texte}}</div>
                   </div>
                 @endforeach
               </ul>

@@ -3,12 +3,12 @@
 
    use App\Http\Models\Ressource as RessourcesMdl;
    use Illuminate\Support\Facades\View;
+   use App\Models\Ressource;
 
    /**
     *  Controller des ressources
     */
    class RessourcesController extends Controller {
-
 
      /**
       * Liste des ressources
@@ -27,17 +27,20 @@
         return View::make('ressources.index', ['ressources' => $ressources ]);
       }
 
-
       /**
        * Détail d'une ressource
        * @param  int $id  [Identifiant de la ressource à afficher]
        * @return array    [Ressource à afficher et les ressources similaires]
        */
      public function show($id){
-        $ressource = RessourcesMdl::with('users')->find($id);
 
-        /* Recherche les ressources d'une même catégorie et en excluant la ressource actuelle */
-        $ressourcesRelated = RessourcesMdl::with('categories')
+       $ressource = RessourcesMdl::with('commentaires.user')->where('id', $id)->first();
+
+       $commentaires = $ressource->commentaires;
+       $ressource = RessourcesMdl::with('users')->find($id);
+
+       /* Recherche les ressources d'une même catégorie et en excluant la ressource actuelle */
+       $ressourcesRelated = RessourcesMdl::with('categories')
                                           ->where([
                                                   ['categorie',$ressource->categorie],
                                                   ['id','<>',$ressource->id]
@@ -45,10 +48,11 @@
                                           ->take(4)
                                           ->get();
 
-        return View::make('ressources.show', [
+       return View::make('ressources.show', [
           'ressource' => $ressource,
-          'ressourcesRelated' => $ressourcesRelated
-        ]);
+          'ressourcesRelated' => $ressourcesRelated,
+          'commentaires' => $commentaires
+       ]);
      }
 
    }

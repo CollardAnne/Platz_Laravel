@@ -12,30 +12,40 @@
 */
 
 // Routes par défaut
-Route::get('/', 'RessourcesController@index')->name('homepage');
+  Route::get('/', 'RessourcesController@index')
+    ->name('homepage');
 
-// Route ressources/show
- Route::get('/{id}', 'RessourcesController@show')
-    ->name('ressources.show')
-    ->where('id', '[0-9]+');
 
-// ROUTE NEWSLETTER
-Route::post('/newsletters/store', 'NewslettersController@store')->name('newsletters.store');
+// Routes : Voyager
+  Route::group(['prefix' => 'admin'], function () {
+      Voyager::routes();
+  });
 
-// Routes Voyager
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
 
-// Routes Authentication
-Auth::routes();
+// Routes : Authentication
+  Auth::routes();
 
-/* Vue composer */
 
-View::composer(['categories.menu','categories.menuIcon'], function($view){
-  $view->with('categories', App\Http\Models\Categorie::all());
-});
+// Routes : Ressources
+  require base_path('routes/ressources.php');
 
-// ROUTE COMMENTAIRE
-Route::get('/commentaires/form', 'CommentairesController@index')->name('commentaires.form');
-Route::get('/ajax/insert', 'CommentairesController@ajaxInsert')->name('ajax.insert');
+
+// Routes : Newsletters
+  require base_path('routes/newsletters.php');
+
+
+// Routes : Commentaires
+  require base_path('routes/commentaires.php');
+
+
+/*
+|--------------------------------------------------------------------------
+| Vue Composer
+|--------------------------------------------------------------------------
+|
+*/
+
+// Vue Composer : Catégories
+  View::composer(['categories.menu','categories.menuIcon'], function($view){
+    $view->with('categories', App\Http\Models\Categorie::all());
+  });
